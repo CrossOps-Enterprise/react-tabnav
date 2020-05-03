@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
 class TabNav extends Component {
   constructor (props) {
     super(props)
@@ -28,13 +27,13 @@ class TabNav extends Component {
     const { activeTabStyles, tabBarStyles, classes, tabBarBorderStyle } = this.props
     const { tabData } = this.state
     return (
-      <>
+      <div className='flexer-column container-fluid'>
         <div className='row w-100' style={tabBarBorderStyle}>
           {tabData.map((item, index) => (
             <div
               key={index}
               style={(item.isActive && activeTabStyles) || tabBarStyles}
-              className={classes || 'col-lg-2 col-md-12 col-sm-12 flexer p-3'}
+              className={`${classes} col-lg-2 col-md-12 col-sm-12 flexer p-3`}
               onClick={() => this.setItem(index)}
             >
               {item.tabName}
@@ -53,8 +52,7 @@ class TabNav extends Component {
             </Fragment>
           ))}
         </div>
-      </>
-
+      </div>
     )
   }
 }
