@@ -1,13 +1,48 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import TabNav from './components/TabNav/Tabnav'
 
-const title = 'React with Webpack and Babel'
-
-ReactDOM.render(
+const Menu = (props) => (
   <div>
-    {title}
-  </div>,
-  document.getElementById('app')
+    {props.cardTitle}
+    <br />
+    {props.cardSubtitle}
+  </div>
 )
 
-// module.hot.accept();
+const tabScreenData = [
+  {
+    tabName: 'Menu',
+    isActive: true,
+    componentProps: {
+      cardTitle: 'Menu Component',
+      cardSubtitle: 'Awesome'
+    },
+    Component: Menu
+  },
+  {
+    tabName: 'Offers',
+    isActive: false,
+    componentProps: {
+      cardTitle: 'Offers Component',
+      cardSubtitle: 'Awesome 2'
+    },
+    Component: Menu
+  }
+]
+
+if (process.env.NODE_ENV !== 'production') {
+  ReactDOM.render(
+    <TabNav
+      activeTabStyles={{ color: 'white', backgroundColor: 'green' }}
+      tabBarStyles={{
+        cursor: 'pointer',
+        color: 'black'
+      }}
+      data={tabScreenData}
+    />,
+    document.getElementById('root')
+  )
+}
+export default TabNav
