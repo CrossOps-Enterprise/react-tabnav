@@ -1,8 +1,8 @@
 {
   "name": "react-tabnav",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "build/bundle.js",
   "private": false,
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode production",

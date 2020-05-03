@@ -10,7 +10,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
+        exclude: /(node_modules|bower_components|build)/,
         use: ['babel-loader', 'eslint-loader']
       },
       {
@@ -19,13 +19,15 @@ module.exports = {
       }
     ]
   },
-
+  externals: {
+    react: 'commonjs react' // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
+  },
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },
 
   output: {
-    path: path.join(__dirname, '/dist'),
+    path: path.join(__dirname, '/build'),
     publicPath: '/',
     filename: 'bundle.js',
     libraryTarget: 'commonjs2'
@@ -37,7 +39,7 @@ module.exports = {
   ],
 
   devServer: {
-    contentBase: './dist',
+    contentBase: './build',
     hot: true
   }
 }
