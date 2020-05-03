@@ -28,8 +28,8 @@ class TabNav extends Component {
     const { activeTabStyles, tabBarStyles, classes, tabBarBorderStyle } = this.props
     const { tabData } = this.state
     return (
-      <div className='flexer-column container-fluid'>
-        <div className='row' style={tabBarBorderStyle}>
+      <>
+        <div className='row w-100' style={tabBarBorderStyle}>
           {tabData.map((item, index) => (
             <div
               key={index}
@@ -53,7 +53,8 @@ class TabNav extends Component {
             </Fragment>
           ))}
         </div>
-      </div>
+      </>
+
     )
   }
 }
