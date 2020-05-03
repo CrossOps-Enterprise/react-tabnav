@@ -4,7 +4,7 @@ const path = require('path')
 
 module.exports = {
   // 1
-  entry: './src/index.js',
+  entry: './index.js',
 
   module: {
     rules: [
@@ -27,7 +27,8 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    libraryTarget: 'commonjs2'
   },
 
   plugins: [
