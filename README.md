@@ -9,8 +9,6 @@
 
 </div>
 
----
-
 ## 📝 Table of Contents
 
 - [Installation](#installation)
@@ -31,7 +29,7 @@ npm install react-tabnavigation
 ```
 yarn add react-tabnavigation
 ```
----
+
 ## 💡 Usage <a name="usage"></a>
 
 ```
@@ -49,7 +47,7 @@ import TabNav from 'react-tabnavigation'
   }]
 }>
 ```
----
+
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
@@ -58,12 +56,12 @@ import TabNav from 'react-tabnavigation'
 - [Eslint](https://eslint.org/) - Find and fix problems in your JavaScript code
 - [Webpack](https://webpack.js.org/) - Javascript Bundler
 
----
+
 ## ✍️ Authors <a name = "authors"></a>
 
 - [@umairx97](https://github.com/umairx97) - Idea & Initial work
 
----
+
 ## 🤖 Todo 
 - Add Tests
 - Fix intellisense for props
