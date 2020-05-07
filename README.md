@@ -39,7 +39,9 @@ import TabNav from 'react-tabnavigation'
 <TabNav data={
   [{
     tabName: 'Dummy',
-    Component: Dummy
+    // true for the initial element to show else false for all 
+    isActive: true | false 
+    Component: Dummy,
     componentProps: {
       prop1: 'dummy prop 1',
       prop2: 'dummy props 2',

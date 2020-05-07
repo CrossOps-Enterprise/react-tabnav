@@ -1,9 +1,45 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Proptypes from 'prop-types'
 
 class TabNav extends Component {
-  constructor (props) {
+  static propTypes = {
+    activeTabStyles: Proptypes.object,
+    tabBarStyles: Proptypes.object,
+    classes: Proptypes.string,
+    tabBarBorderStyle: Proptypes.object,
+    data: Proptypes.array
+  }
+
+  static defaultProps = {
+    activeTabStyles: {
+      border: 'solid 1px red'
+    },
+    tabBarStyles: {
+      border: 'solid 1px green'
+    },
+    classes: '',
+    tabBarBorderStyle: {},
+    data: [
+      {
+      tabName: 'Dummy',
+      isActive: true,
+      Component: (props) => (<div>This is a {props.componentName} component</div>),
+      componentProps: {
+        componentName: "Dummy"
+      }
+    },
+    {
+      tabName: 'Dummy 2',
+      isActive: false,
+      Component: (props) => (<div>This is a {props.componentName} component</div>),
+      componentProps: {
+        componentName: "Dummy 2"
+      }
+    }]
+  }
+
+  constructor(props) {
     super(props)
     this.state = {
       tabData: this.props.data || []
@@ -12,7 +48,7 @@ class TabNav extends Component {
     this.setItem = this.setItem.bind(this)
   }
 
-  setItem (index) {
+  setItem(index) {
     const merged = [...this.state.tabData]
 
     if (!merged[index].isActive) {
@@ -25,7 +61,7 @@ class TabNav extends Component {
     this.setState({ tabData: merged })
   };
 
-  render () {
+  render() {
     const { activeTabStyles, tabBarStyles, classes, tabBarBorderStyle } = this.props
     const { tabData } = this.state
     if (!tabData.length) return <div>Please Provide Data</div>
@@ -39,33 +75,23 @@ class TabNav extends Component {
               className={`${classes} w-100 flexer`}
               onClick={() => this.setItem(index)}
             >
-              {item.tabName} this is updated
+              {item.tabName}
             </div>
           ))}
         </div>
 
         <div>
           {tabData.map(({ Component, ...item }, index) => (
-            <Fragment key={index}>
+            <div key={index}>
               {item.isActive && item.tabName === tabData[index].tabName && (
-                <div>
-                  {Component(item.componentProps || {})}
-                </div>
+                Component(item.componentProps || {})
               )}
-            </Fragment>
+            </div>
           ))}
         </div>
       </div>
     )
   }
-}
-
-TabNav.proptypes = {
-  activeTabStyles: Proptypes.object,
-  tabBarStyles: Proptypes.object,
-  classes: Proptypes.string,
-  tabBarBorderStyle: Proptypes.object,
-  data: Proptypes.array
 }
 
 export default TabNav
