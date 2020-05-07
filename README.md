@@ -55,7 +55,6 @@ import TabNav from 'react-tabnavigation'
 
 - [React](https://reactjs.org/) - Frontend Library
 - [Babel](https://babeljs.io/) - Use next generation JavaScript, today.
-- [Eslint](https://eslint.org/) - Find and fix problems in your JavaScript code
 - [Webpack](https://webpack.js.org/) - Javascript Bundler
 
 

@@ -1,6 +1,6 @@
 {
   "name": "react-tabnavigation",
-  "version": "2.0.6",
+  "version": "2.0.8",
   "private": false,
   "description": "React Tab Navigation",
   "keywords": [
@@ -26,6 +26,7 @@
     "build": "webpack --config ./webpack.config.js --mode production",
     "start": "webpack-dev-server --config ./webpack.config.js --mode production",
     "dev": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "publish:npm": "npm run build && npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
