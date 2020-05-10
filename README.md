@@ -33,7 +33,7 @@ yarn add react-tabnavigation
 ## 💡 Usage <a name="usage"></a>
 
 ```
-Import React from 'react'
+import React from 'react'
 import TabNav from 'react-tabnavigation'
 
 <TabNav data={
